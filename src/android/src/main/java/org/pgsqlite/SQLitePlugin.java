@@ -374,10 +374,8 @@ public class SQLitePlugin extends ReactContextBaseJavaModule {
                         File assetFile = new File(filesDir, assetFilePath);
                         in = new FileInputStream(assetFile);
                         FLog.v(TAG, "Pre-populated DB asset FOUND in Files subdirectory: " + assetFile.getCanonicalPath());
-                        if (openFlags == SQLiteDatabase.OPEN_READONLY) {
-                            dbfile = assetFile;
-                            FLog.v(TAG, "Detected read-only mode request for external asset.");
-                        }
+                        dbfile = assetFile;
+                        FLog.v(TAG, "Detected read-only mode request for external asset.");
                     } catch (Exception ex){
                         assetImportError = true;
                         FLog.e(TAG, "Error opening pre-populated DB asset in app bundle www subdirectory: " + assetFilePath);
